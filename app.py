@@ -69,35 +69,39 @@ def handle_userinput(user_question):
 
 
 def main():
-    url_logo = "https://github.com/FedeGG09/XITRUS/blob/main/xitrus_ai_cover.png.jpg?raw=true"
+    url_logo = "https://github.com/manolito99/DataScienceLLM/blob/main/static/logo_alternativo.png?raw=true"
     st.set_page_config(page_title="LLM-RAG",
                        page_icon=url_logo)
     st.write(css, unsafe_allow_html=True)
 
     titulo = f"""
      <div class="btn-neon">
-       <span class="icon"><img src=https://github.com/FedeGG09/XITRUS/blob/main/xitrus_ai_cover.png.jpg?raw=true></span>
+       <span class="icon"><img src=https://github.com/manolito99/DataScienceLLM/blob/main/static/Mistral.png?raw=true></span>
         Mistral7b + Streamlit
         <span class="icon"><img src=https://github.com/manolito99/DataScienceLLM/blob/main/static/streamlit.png?raw=true></span>
      </div>
-  
+    """
+    st.markdown(titulo, unsafe_allow_html=True)
+
     presentacion = f"""
             <div class="skill">
                 <div class="skill-content">
                     <div class="skill-img-box">
-                        <a href="X/" target="_blank">
-                        <img src="https://github.com/FedeGG09/XITRUS/blob/main/xitrus_ai_logo.png.jpg" alt="Tu descripción">
+                        <a href="https://www.linkedin.com/in/manueloteromarquez/" target="_blank">
+                        <img src="https://media.licdn.com/dms/image/C4D03AQEsabRcMGkMmQ/profile-displayphoto-shrink_800_800/0/1663585925916?e=1708560000&v=beta&t=1Ofx1PsbTSlMcNIVCxznEjtIA_aIlTVaJm52toMKddU" alt="Tu descripción">
                         </a>                    
                     </div>
                     <div class="skill-detail">
-                        <h2 class="skill-title">By XITRUS </h2>
-                        <p>
+                        <h2 class="skill-title">By Manuel Otero Márquez </h2>
+                        <p>Esto es un ejemplo de como se pueden implementar una arquitectura RAG para un LLM para chatear con tus pdfs utilizando solo la CPU</p>
                         <div class="skill-progress">
                             <div class="progress progress-1"></div>
                         </div>
                     </div>
                 </div>
             </div>
+"""
+    st.markdown(presentacion, unsafe_allow_html=True)
 
     if "conversation" not in st.session_state:
         st.session_state.conversation = None
