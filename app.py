@@ -69,18 +69,17 @@ def handle_userinput(user_question):
 
 
 def main():
-    url_logo = "https://github.com/FedeGG09/XITRUS/blob/main/xitrus_ai_logo.png.jpg?raw=true"
+    url_logo = "https://github.com/manolito99/DataScienceLLM/blob/main/static/logo_alternativo.png?raw=true"
     st.set_page_config(page_title="LLM-RAG", page_icon=url_logo)
     st.write(css, unsafe_allow_html=True)
 
-
-titulo = f"""
- <div class="btn-neon">
-   <span class="icon"><img src=https://github.com/FedeGG09/XITRUS/blob/main/xitrus_ai_logo.png.jpg?raw=true></span>
-    Welcome to XITRUS
-    <span class="icon"><img src=https://github.com/FedeGG09/XITRUS/blob/main/xitrus_ai_cover.png.jpg?raw=true></span>
- </div>
-"""
+    titulo = f"""
+     <div class="btn-neon">
+       <span class="icon"><img src=https://github.com/manolito99/DataScienceLLM/blob/main/static/Mistral.png?raw=true></span>
+        Welcome to XITRUS
+        <span class="icon"><img src=https://github.com/manolito99/DataScienceLLM/blob/main/static/streamlit.png?raw=true></span>
+     </div>
+    """
     st.markdown(titulo, unsafe_allow_html=True)
 
     presentacion = """
