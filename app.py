@@ -11,7 +11,12 @@ import streamlit.components.v1 as components
 from templatesStreamlit import *
 import tempfile
 import os
+import openai
 
+openai_api_key = st.secrets["openai"]["api_key"]
+
+# Cargar el modelo GPT-3 de OpenAI
+model = openai.Completion.create(model="text-davinci-002", engine="davinci", max_tokens=100)
 # Funcion para leer los documentos
 def load_documents(uploaded_files):
     docs = []
@@ -56,16 +61,22 @@ def get_conversation_chain(vector_store):
     return conversation_chain
 
 def handle_userinput(user_question):
-    response = st.session_state.conversation({'question': user_question})
-    st.session_state.chat_history = response['chat_history']
+    response = openai.Completion.create(
+        model="text-davinci-002",
+        prompt=user_question,
+        max_tokens=50
+    )
+    generated_response = response.choices[0].text.strip()
+
+    st.session_state.chat_history.append(generated_response)
 
     for i, message in enumerate(st.session_state.chat_history):
         if i % 2 == 0:
-            st.write(user_template2.replace(
-                "{{MSG}}", message.content), unsafe_allow_html=True)
+            st.write(f'<div class="chat-box user-message"><div class="user-icon"></div>{message}</div>', unsafe_allow_html=True)
         else:
-            st.write(bot_template2.replace(
-                "{{MSG}}", message.content), unsafe_allow_html=True)
+            st.write(f'<div class="chat-box bot-message"><div class="bot-icon"></div>{message}</div>', unsafe_allow_html=True)
+
+    st.write(css, unsafe_allow_html=True)
 
 
 def main():
